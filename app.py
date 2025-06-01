@@ -20,7 +20,7 @@ if not groq_api_key:
 print(f"GROQ_API_KEY: {groq_api_key}")
 
 # Pass the API key directly during initialization
-groq_client = groq.Client(api_key=groq_api_key)
+groq_client = groq.Client(groq_api_key)
 
 @app.route('/analyze', methods=['POST'])
 def analyze_typing():
@@ -33,7 +33,7 @@ def analyze_typing():
         user_text = data['text']
         
         # Prepare the prompt for the LLaMA 3 model
-        prompt = f"""
+        prompt = f """
         You are a typing coach analyzing a user's typing sample. Provide helpful feedback on:
         
         1. Typing accuracy (common mistakes, patterns of errors)
